@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState} from 'react'
 
 import Home from './Home.jsx'
 import Details from './Details.jsx'
+import { Route, Routes } from 'react-router-dom'
 
 // set paths for home and details 
   // view details on selected book 
@@ -20,13 +21,12 @@ const App = () => {
   return (
     <>
       <h1>Book-Buddy</h1>
-      <Home setselectedBook={setselectedBook}/>
-      <Details/>
-      <section id='book-details'>
-        <p>Title: {selectedBook.id}</p>  
-
-      </section>
-    
+      <Routes>
+        <Route path='/' element={ <Home setselectedBook={setselectedBook}/>} />
+        <Route path='/details'element={<Details selectedBook={selectedBook}/>} />
+      </Routes>
+      
+     
     
     </>
   )

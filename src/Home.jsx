@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Home = ({setselectedBook}) => {
   const [Books, setBooks] = useState([])
+  const navigate = useNavigate()
   // / display all books in catalog
   // create func to async fetch within useEffect so it only runs once and when the state is updated
   useEffect(()=>{
@@ -22,8 +24,10 @@ const Home = ({setselectedBook}) => {
       {
         Books.map((singleBook)=>{
           return (
-            <section key={singleBook.id} onClick={(event) => {
+            <section key={singleBook.id} onClick={() => {
               setselectedBook(singleBook)
+              
+              navigate('/details')
             }}>
               <h2>{singleBook.title}</h2>
             </section>
