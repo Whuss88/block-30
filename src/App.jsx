@@ -1,8 +1,12 @@
 import { useState } from 'react'
 
-import { useEffect } from "react"
+import Home from './Home.jsx'
+import Details from './Details.jsx'
 
-// view details on selected book 
+// set paths for home and details 
+  // view details on selected book 
+    // function for all-book section
+      // setselectedBook in func 
 
 // login to an existing account
 
@@ -10,35 +14,20 @@ import { useEffect } from "react"
 // Tier 2(second phase)
 
 const App = () => {
-  const [Books, setBooks] = useState([])
-  // / display all books in catalog
-  // create func to async fetch within useEffect so it only runs once and when the state is updated
-  useEffect(()=>{
-    const fetchBooks =  async () => {
-      
-      const response = await fetch(`https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/books`)
-      const responseJson = await response.json() // brings back object called books
-      const allBooks = responseJson.books // brings back an array of 50 books
-      setBooks(allBooks) // sets the state of books
-      console.log(Books) // displayed updated state
-    }; 
-    fetchBooks()
-  }, []);
+  const [selectedBook, setselectedBook] = useState ({})
   
+  console.log(selectedBook)
   return (
     <>
       <h1>Book-Buddy</h1>
-      <section id='all-books'>
-      {
-        Books.map((singleBook)=>{
-          return (
-            <section key={singleBook.id}>
-              <h2>{singleBook.title}</h2>
-            </section>
-          )
-        })
-      }
+      <Home setselectedBook={setselectedBook}/>
+      <Details/>
+      <section id='book-details'>
+        <p>Title: {selectedBook.id}</p>  
+
       </section>
+    
+    
     </>
   )
 }
