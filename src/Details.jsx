@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom"
 
 const Details = ({selectedBook}) => {
   const Navigate = useNavigate()
+
+  
   return (
     <>
       <section>
@@ -9,7 +11,7 @@ const Details = ({selectedBook}) => {
         <p>Id: {selectedBook.id}</p>
         <p>Author: {selectedBook.author}</p>
         <p>description: {selectedBook.description}</p>
-        <p>Availability: {selectedBook.available}</p> {/* change to true or false statement for yes or no  */}
+        {selectedBook.available ? <p>Available: In stock</p> : <p>Available: Out of Stock</p> } 
         <img src={selectedBook.coverimage}
         height={300}
         width={200}/>
