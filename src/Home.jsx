@@ -20,6 +20,13 @@ const Home = ({setselectedBook}) => {
     fetchBooks()
   }, []);
 
+
+  // search bar should take user input
+    // input field for search bar
+    // check it against api for matching info
+    // if it matches show searchedBook.info etc
+    // if not then show <p>book not in database</p>
+
   return (
     <>
     {/* make nav bar */}

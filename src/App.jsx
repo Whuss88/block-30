@@ -16,7 +16,6 @@ import { Route, Routes } from 'react-router-dom'
 const App = () => {
   const [selectedBook, setselectedBook] = useState ({})
   
-  // console.log(selectedBook)
   return (
     <>
       <h1>Book-Buddy</h1>
