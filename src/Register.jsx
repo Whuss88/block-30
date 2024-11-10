@@ -9,7 +9,7 @@ const Register = () => {
   const [password, setPassword] = useState ('')
   const [message, setMessage] = useState('')
   const [token,setToken] = useState('')
-  const [id, setID] = useState('')
+
 
   const Navigate = useNavigate()
 
@@ -31,7 +31,7 @@ const Register = () => {
     })
 
     const tokenObj = await response.json()
-    setID(tokenObj.user.id)
+    
     const apiMessage = tokenObj.message
     setMessage(apiMessage)
     const accessToken = tokenObj.token
@@ -66,7 +66,7 @@ const Register = () => {
           <p>last name entered:{lastN}</p>
           <p>email:{email}</p>
           <p>password:{password}</p>
-          <p>ID:{id}</p>
+         
         </section>
 
     
