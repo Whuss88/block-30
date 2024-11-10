@@ -48,7 +48,9 @@ const Register = () => {
   return(
     <>
       <section id="navbar">
-        <button onClick={() => Navigate('/')}>home</button>  
+        <button onClick={() => Navigate('/')}>Home</button>  
+        <button onClick={() => Navigate('/login')}>Login</button>  
+
       </section>
       <h3>Register</h3>
        <form id="create" onSubmit={handleSubmit}>
