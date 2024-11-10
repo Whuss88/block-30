@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Register from "./Register";
 
 const Home = ({setselectedBook}) => {
   const [Books, setBooks] = useState([])
   const navigate = useNavigate()
-  // / display all books in catalog
-  // create func to async fetch within useEffect so it only runs once and when the state is updated
+ 
+  // send input to api
+  // confirm account was created
   useEffect(()=>{
     const fetchBooks =  async () => {
       
@@ -13,13 +15,16 @@ const Home = ({setselectedBook}) => {
       const responseJson = await response.json() // brings back object called books
       const allBooks = responseJson.books // brings back an array of 50 books
       setBooks(allBooks) // sets the state of books
-      console.log(Books) // displayed updated state
+      // console.log(Books) // displayed updated state
     }; 
     fetchBooks()
   }, []);
 
   return (
     <>
+    {/* make nav bar */}
+      <Link to="/register" >Register</Link>
+
      <section id='all-books'>
       {
         Books.map((singleBook)=>{
@@ -35,6 +40,7 @@ const Home = ({setselectedBook}) => {
         })
       }
       </section>
+      
     </>
   )
 }
