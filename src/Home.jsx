@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Register from "./Register";
 
 const Home = ({setselectedBook}) => {
   const [Books, setBooks] = useState([])
@@ -29,9 +28,12 @@ const Home = ({setselectedBook}) => {
 
   return (
     <>
-    {/* make nav bar */}
-      <Link to="/register" >Register</Link>
-
+      
+      <section id="navbar">
+      <Link to="/register" >Create an Account</Link>
+      <Link to="/login"> Login Here</Link>
+      </section>
+      
      <section id='all-books'>
       {
         Books.map((singleBook)=>{

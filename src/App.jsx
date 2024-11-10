@@ -3,6 +3,7 @@ import { useState} from 'react'
 import Home from './Home.jsx'
 import Details from './Details.jsx'
 import Register from './Register.jsx'
+import Login from './Login.jsx'
 import { Route, Routes } from 'react-router-dom'
 
 
@@ -23,6 +24,7 @@ const App = () => {
         <Route path='/' element={ <Home setselectedBook={setselectedBook}/>} />
         <Route path='/details'element={<Details selectedBook={selectedBook}/>} />
         <Route path='/register' element={<Register />}/>
+        <Route path='/login' element={<Login/>}/>
       </Routes>
       
      

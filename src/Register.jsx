@@ -9,7 +9,7 @@ const Register = () => {
   const [password, setPassword] = useState ('')
   const [message, setMessage] = useState('')
   const [token,setToken] = useState('')
-  const [id, setID] = useState('')
+
 
   const Navigate = useNavigate()
 
@@ -31,7 +31,7 @@ const Register = () => {
     })
 
     const tokenObj = await response.json()
-    setID(tokenObj.user.id)
+    
     const apiMessage = tokenObj.message
     setMessage(apiMessage)
     const accessToken = tokenObj.token
@@ -48,7 +48,9 @@ const Register = () => {
   return(
     <>
       <section id="navbar">
-        <button onClick={() => Navigate('/')}>home</button>  
+        <button onClick={() => Navigate('/')}>Home</button>  
+        <button onClick={() => Navigate('/login')}>Login</button>  
+
       </section>
       <h3>Register</h3>
        <form id="create" onSubmit={handleSubmit}>
@@ -66,7 +68,7 @@ const Register = () => {
           <p>last name entered:{lastN}</p>
           <p>email:{email}</p>
           <p>password:{password}</p>
-          <p>ID:{id}</p>
+         
         </section>
 
     
