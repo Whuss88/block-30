@@ -1,3 +1,9 @@
 body {
   background-color: rgb(173, 179, 255);
 }
+
+#register {
+  position: absolute;
+  left: 1000px;
+  bottom: 500px;
+}
