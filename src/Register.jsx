@@ -1,14 +1,14 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-const Register = () => {
+const Register = ({email, setEmail, password, setPassword, message, setMessage, token, setToken, firstN, setFirstN, lastN, setLastN}) => {
 
-  const [firstN, setFirstN] = useState('')
-  const [ lastN, setLastN] = useState('')
-  const [email, setEmail] = useState ('')
-  const [password, setPassword] = useState ('')
-  const [message, setMessage] = useState('')
-  const [token,setToken] = useState('')
+  // const [firstN, setFirstN] = useState('')
+  // const [ lastN, setLastN] = useState('')
+  // // const [email, setEmail] = useState ('')
+  // const [password, setPassword] = useState ('')
+  // const [message, setMessage] = useState('')
+  // const [token,setToken] = useState('')
 
 
   const Navigate = useNavigate()

@@ -1,12 +1,13 @@
-import { useState } from "react"
+// import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+// import Account from "./Account"
 
-const Login = () => {
+const Login = ({email, setEmail, password, setPassword, message, setMessage, token, setToken,  firstN, setFirstN, lastN, setLastN}) => {
   const Navigate = useNavigate()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [message, setMessage] = useState('')
-  const [token,setToken] = useState('')
+  // const [email, setEmail] = useState('')
+  // const [password, setPassword] = useState('')
+  // const [message, setMessage] = useState('')
+  // const [token,setToken] = useState('')
 
 
   const handleSubmit = async (event) => {
@@ -33,6 +34,7 @@ const Login = () => {
     console.log(accessToken)
     setToken(accessToken)
     localStorage.setItem('token', accessToken)
+    Navigate('/account')
 
     } catch (error) {
       console.log(error)
@@ -50,8 +52,8 @@ const Login = () => {
       <h3>loggin in </h3>
       
       {/* section where creditials go */}
-      <section id="login-credentials" onSubmit={handleSubmit}>
-        <form>
+      <section id="login-credentials" >
+        <form onSubmit={handleSubmit}> 
           {/* input email */}
           <input type="text" placeholder="Enter Email" onChange={(event)=>{setEmail(event.target.value)}}/>
           {/* input password */}
@@ -59,16 +61,7 @@ const Login = () => {
           <button>Login</button>
         </form>
       </section>
-      <section id="account-details">
-        <p>Message: {message}</p>
-        <p>User Email: {email}</p>
-        {/* display account page */}
-        <p>User Password: {password}</p>
-        {/* make account page */}
-        {/* display account credentials */}
-        {/* display logout button */}
-        {/* will go to either go to home or somwhere */}
-      </section>
+
       
     </>
   )
