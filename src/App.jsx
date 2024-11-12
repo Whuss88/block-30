@@ -5,6 +5,7 @@ import Details from './Details.jsx'
 import Register from './Register.jsx'
 import Login from './Login.jsx'
 import { Route, Routes } from 'react-router-dom'
+import Account from './Account.jsx'
 
 
 
@@ -16,6 +17,12 @@ import { Route, Routes } from 'react-router-dom'
 
 const App = () => {
   const [selectedBook, setselectedBook] = useState ({})
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [message, setMessage] = useState('')
+  const [token, setToken] = useState('')
+  const [firstN, setFirstN] = useState('')
+  const [ lastN, setLastN] = useState('')
   
   return (
     <>
@@ -23,8 +30,27 @@ const App = () => {
       <Routes>
         <Route path='/' element={ <Home setselectedBook={setselectedBook}/>} />
         <Route path='/details'element={<Details selectedBook={selectedBook}/>} />
-        <Route path='/register' element={<Register />}/>
-        <Route path='/login' element={<Login/>}/>
+        <Route path='/register' element={<Register 
+        email={email} setEmail={setEmail}
+        password={password} setPassword={setPassword}
+        message={message} setMessage={setMessage}
+        token={token} setToken={setToken}
+        firstN={firstN} setFirstN={setFirstN}
+        lastN={lastN} setLastN={setLastN}/>}/>
+        <Route path='/login' element={<Login
+        email={email} setEmail={setEmail}
+        password={password} setPassword={setPassword}
+        message={message} setMessage={setMessage}
+        token={token} setToken={setToken}
+        firstN={firstN} setFirstN={setFirstN}
+        lastN={lastN} setLastN={setLastN}/>}/>
+        <Route path='/account' element={<Account
+        email={email} setEmail={setEmail}
+        password={password} setPassword={setPassword}
+        message={message} setMessage={setMessage}
+        token={token} setToken={setToken}
+        firstN={firstN} setFirstN={setFirstN}
+        lastN={lastN} setLastN={setLastN}/>} />
       </Routes>
       
      
